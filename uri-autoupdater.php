@@ -22,7 +22,7 @@ if ( !defined('ABSPATH') )
  *
  * @since 1.0.0
  */
-function uri_updater_activate() {
+function uri_autoupdater_activate() {
   if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
     include_once( ABSPATH . '/wp-admin/includes/plugin.php' );
   }
@@ -38,14 +38,14 @@ function uri_updater_activate() {
     die( $error_message ); // WPCS: XSS ok.
   }
 }
-register_activation_hook( __FILE__, 'uri_updater_activate' );
+register_activation_hook( __FILE__, 'uri_autoupdater_activate' );
 
 
 /**
  * Create an updater class
  * @see https://code.tutsplus.com/tutorials/distributing-your-plugins-in-github-with-automatic-updates--wp-34817
  */
-class uri_github_update {
+class uri_autoupdater_github_update {
  
 		private $slug; // plugin slug
 		private $pluginData; // plugin data
@@ -239,14 +239,14 @@ class uri_github_update {
  *
  * function uri_pluginname_update() {
  *    if ( function_exists( 'uri_check_for_updates' ) ) {
- *        uri_check_for_updates(__FILE__, 'repo_name');
+ *        uri_autoupdater_check_for_updates(__FILE__, 'repo_name');
  *    }
  * };
  * add_action( 'plugins_loaded', 'uri_pluginname_update' );
  *
  */
-function uri_check_for_updates( $plugin_file, $repo_name, $user = 'uriweb' ) {
+function uri_autoupdater_check_for_updates( $plugin_file, $repo_name, $user = 'uriweb' ) {
 	if ( is_admin() ) {
-		new uri_github_update( $plugin_file, $user, $repo_name );
+		new uri_autoupdater_github_update( $plugin_file, $user, $repo_name );
 	}
 }
