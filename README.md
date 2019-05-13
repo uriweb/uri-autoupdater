@@ -2,6 +2,11 @@
 
 Automatic WordPress updates for all URI plugins and themes that support it.
 
+## Installation instructions
+
+Download ParseDown and add Parsedown.php to this plugin.
+https://github.com/erusev/parsedown
+
 ## Plugin Details 
 
 Contributors: Brandon Fuller  
