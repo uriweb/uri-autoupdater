@@ -2,6 +2,8 @@
 
 Automatic WordPress updates for all URI plugins and themes that support it.
 
+> ⚠︎ Note: Never fully implemented and functionallity was rendered obsolete on November 30, 2022 as the URI web infrastruture now runs on a composer stack.
+
 ## Installation instructions
 
 Download ParseDown and add Parsedown.php to this plugin.
